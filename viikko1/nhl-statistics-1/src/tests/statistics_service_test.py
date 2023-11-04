@@ -1,5 +1,5 @@
 import unittest
-from statistics_service import StatisticsService
+from statistics_service import StatisticsService, SortBy
 from player import Player
 
 class PlayerReaderStub:
@@ -42,8 +42,29 @@ class TestStatisticsService(unittest.TestCase):
         self.assertEqual(players_of_team[2], self.stats._players[4])
 
     def test_top_returns_correct_amount_of_players_with_most_points_in_order(self):
+        top_players = self.stats.top(1, SortBy.POINTS)
+
+        self.assertEqual(len(top_players), 2)
+        self.assertEqual(top_players[0], self.stats._players[4])
+        self.assertEqual(top_players[1], self.stats._players[1])
+
+    def test_top_sorts_by_points_without_if_no_criteria_as_parameter(self):
         top_players = self.stats.top(1)
 
         self.assertEqual(len(top_players), 2)
         self.assertEqual(top_players[0], self.stats._players[4])
         self.assertEqual(top_players[1], self.stats._players[1])
+
+    def test_top_returns_correct_amount_of_players_with_most_goals_order(self):
+        top_players = self.stats.top(1, SortBy.GOALS)
+
+        self.assertEqual(len(top_players), 2)
+        self.assertEqual(top_players[0], self.stats._players[1])
+        self.assertEqual(top_players[1], self.stats._players[3])
+
+    def test_top_returns_correct_amount_of_players_with_most_assists_in_order(self):
+        top_players = self.stats.top(1, SortBy.ASSISTS)
+
+        self.assertEqual(len(top_players), 2)
+        self.assertEqual(top_players[0], self.stats._players[4])
+        self.assertEqual(top_players[1], self.stats._players[3])
