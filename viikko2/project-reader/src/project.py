@@ -19,6 +19,9 @@ class Project:
             "\n"
             f"\nAuthors: {self.authors}"
             "\n"
-            f"\nDependencies: {self._stringify_dependencies(self.dependencies)}"
-            f"\nDevelopment dependencies: {self._stringify_dependencies(self.dev_dependencies)}"
+            f"\nDependencies:\
+                {self._stringify_dependencies(self.dependencies)}"
+            "\n"
+            f"\nDevelopment dependencies:\
+                {self._stringify_dependencies(self.dev_dependencies)}"
         )
