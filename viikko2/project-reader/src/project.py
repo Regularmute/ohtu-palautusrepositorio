@@ -17,7 +17,7 @@ class Project:
             f"\nDescription: {self.description or '-'}"
             f"\nLicense: {self.license or '-'}"
             "\n"
-            f"\nAuthors: {self.authors}"
+            f"\nAuthors: {self._stringify_dependencies(self.authors)}"
             "\n"
             f"\nDependencies:\
                 {self._stringify_dependencies(self.dependencies)}"
