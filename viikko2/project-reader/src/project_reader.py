@@ -14,11 +14,15 @@ class ProjectReader:
 
         project_name = parsed_poetry_content['name']
         project_description = parsed_poetry_content['description']
+        project_license = parsed_poetry_content['license']
+        project_authors = parsed_poetry_content['authors']
         project_dependencies = parsed_poetry_content['dependencies']
         project_dev_dependencies = parsed_poetry_content['group']['dev']['dependencies']
 
         # deserialisoi TOML-formaatissa oleva merkkijono ja muodosta Project-olio sen tietojen perusteella
         return Project(project_name,
                        project_description,
+                       project_license,
+                       project_authors,
                        project_dependencies,
                        project_dev_dependencies)
