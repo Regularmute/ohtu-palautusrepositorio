@@ -17,7 +17,10 @@ def main():
 
     print("Oliot:")
 
-    for player in players:
+    players_by_score = sorted(
+        players, key=lambda player: player.score, reverse=True)
+
+    for player in players_by_score:
         print(player)
 
 if __name__ == "__main__":

@@ -5,6 +5,7 @@ class Player:
         self.assists = dict['assists']
         self.goals = dict['goals']
         self.team = dict['team']
+        self.score = self.assists + self.goals
     
     def __str__(self):
         return (
