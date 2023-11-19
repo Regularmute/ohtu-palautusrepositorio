@@ -12,7 +12,8 @@ Register With Already Taken Username And Valid Password
     Output Should Contain  User with username jaakko already exists
 
 Register With Too Short Username And Valid Password
-# ...
+    Input Credentials  K  Kalevi333
+    Output Should Contain  Username must be at least 3 characters
 
 Register With Enough Long But Invalid Username And Valid Password
 # ...
