@@ -13,7 +13,7 @@ Register With Already Taken Username And Valid Password
 
 Register With Too Short Username And Valid Password
     Input Credentials  K  Kalevi333
-    Output Should Contain  Username must be at least 3 characters
+    Output Should Contain  Username must be at least 3 characters long
 
 Register With Enough Long But Invalid Username And Valid Password
     Input Credentials  Kalevi444  Kalevi333
