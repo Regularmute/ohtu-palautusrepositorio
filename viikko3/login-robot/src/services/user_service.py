@@ -43,5 +43,7 @@ class UserService:
             raise UserInputError("Username can only contain letters A-Z")
         if len(password) < 8:
             raise UserInputError("Password must be at least 8 characters long")
+        if not re.search(r'[^a-zA-Z]', password):
+            raise UserInputError("Password must contain non-letter characters.")
 
         # toteuta loput tarkastukset tänne ja nosta virhe virhetilanteissa
