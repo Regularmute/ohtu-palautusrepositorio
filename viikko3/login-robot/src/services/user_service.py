@@ -36,5 +36,7 @@ class UserService:
     def validate(self, username, password):
         if not username or not password:
             raise UserInputError("Username and password are required")
+        if len(username) < 3:
+            raise UserInputError("Username must be at least 3 characters")
 
         # toteuta loput tarkastukset tänne ja nosta virhe virhetilanteissa
