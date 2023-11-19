@@ -11,7 +11,8 @@ ${REGISTER_URL}  http://${SERVER}/register
 
 *** Keywords ***
 Open And Configure Browser
-    ${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
+    #${options}  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys
+    ${options}  Evaluate  sys.modules['selenium.webdriver'].FirefoxOptions()  sys
     # seuraava rivi on kommentoitu toistaiseksi pois
     # Call Method  ${options}  add_argument  --headless
     Open Browser  browser=chrome  options=${options}
