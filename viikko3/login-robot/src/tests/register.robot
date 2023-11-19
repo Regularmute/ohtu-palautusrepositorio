@@ -24,7 +24,8 @@ Register With Valid Username And Too Short Password
     Output Should Contain  Password must be at least 8 characters long
 
 Register With Valid Username And Long Enough Password Containing Only Letters
-# ...
+    Input Credentials  Kalevi  KaleviKoo
+    Output Should Contain  Password must contain non-letter characters.
 
 *** Keywords ***
 Create User And Input New Command
