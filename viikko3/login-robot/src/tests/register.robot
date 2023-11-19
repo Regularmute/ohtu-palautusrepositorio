@@ -16,7 +16,8 @@ Register With Too Short Username And Valid Password
     Output Should Contain  Username must be at least 3 characters
 
 Register With Enough Long But Invalid Username And Valid Password
-# ...
+    Input Credentials  Kalevi444  Kalevi333
+    Output Should Contain  Username can only contain letters A-Z
 
 Register With Valid Username And Too Short Password
 # ...
