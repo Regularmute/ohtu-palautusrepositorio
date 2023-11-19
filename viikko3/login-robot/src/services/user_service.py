@@ -38,7 +38,7 @@ class UserService:
         if not username or not password:
             raise UserInputError("Username and password are required")
         if len(username) < 3:
-            raise UserInputError("Username must be at least 3 characters")
+            raise UserInputError("Username must be at least 3 characters long")
         if re.search(r'[^a-zA-Z]', username):
             raise UserInputError("Username can only contain letters A-Z")
         if len(password) < 8:
