@@ -1,10 +1,9 @@
 *** Settings ***
 Resource  resource.robot
-Test Setup  Input New Command And Create User
+Test Setup  Create User And Input New Command
 
 *** Test Cases ***
 Register With Valid Username And Password
-    Input New Command
     Input Credentials  Kalevi  Kalevi333
     Output Should Contain  New user registered
 
@@ -24,6 +23,6 @@ Register With Valid Username And Long Enough Password Containing Only Letters
 # ...
 
 *** Keywords ***
-Input New Command And Create User
-    Input New Command
+Create User And Input New Command
     Create User  jaakko  jaakko123
+    Input New Command
