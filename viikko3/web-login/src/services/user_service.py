@@ -44,6 +44,8 @@ class UserService:
             raise UserInputError("Username must be at least 3 characters long")
         if not re.search(r'[^a-zA-Z]', password):
             raise UserInputError("Password must contain non-letter characters")
+        if password != password_confirmation:
+            raise UserInputError("Passwords do not match")
 
         # toteuta loput tarkastukset tänne ja nosta virhe virhetilanteissa
 
