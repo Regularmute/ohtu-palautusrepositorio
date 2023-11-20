@@ -35,6 +35,24 @@ Register With Nonmatching Password And Password Confirmation
     Submit Credentials
     Register Should Fail With Message  Passwords do not match
 
+Login After Successful Registration
+    Set Username  ville
+    Set Password  ville123
+    Set Password Confirmation  ville123
+    Submit Credentials
+    Register Should Succeed
+
+    Click Link  ohtu
+    Click Button  Logout
+
+    Set Username  ville
+    Set Password  ville123
+    Submit Login
+    Login Should Succeed
+
+Login After Failed Registration
+    # ...
+
 *** Keywords ***
 Register Should Succeed
     Welcome Page Should Be Open
@@ -62,3 +80,9 @@ Set Password Confirmation
 Go And Check Register Page
     Go To Register Page
     Register Page Should Be Open
+
+Submit Login
+    Click Button  Login
+
+Login Should Succeed
+    Main Page Should Be Open
