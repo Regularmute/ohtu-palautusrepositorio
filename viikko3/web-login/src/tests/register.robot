@@ -28,7 +28,11 @@ Register With Valid Username And Invalid Password
     Register Should Fail With Message  Password must contain non-letter characters
 
 Register With Nonmatching Password And Password Confirmation
-# ...
+    Set Username  ville
+    Set Password  ville123
+    Set Password Confirmation  Ville123
+    Submit Credentials
+    Register Should Fail With Message  Passwords do not match
 
 *** Keywords ***
 Register Should Succeed
