@@ -8,6 +8,7 @@ Test Setup  Create User And Go To Register Page
 Register With Valid Username And Password
     Set Username  ville
     Set Password  ville123
+    Set Password Confirmation  ville123
     Submit Credentials
     Register Should Succeed
 
@@ -40,6 +41,10 @@ Set Username
 Set Password
     [Arguments]  ${password}
     Input Password  password  ${password}
+
+Set Password Confirmation
+    [Arguments]  ${password}
+    Input Password  password_confirmation  ${password}
 
 Create User And Go To Register Page
     Create User  kalle  kalle123
