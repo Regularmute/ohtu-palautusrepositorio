@@ -13,7 +13,11 @@ Register With Valid Username And Password
     Register Should Succeed
 
 Register With Too Short Username And Valid Password
-# ...
+    Set Username  Ve
+    Set Password  ville123
+    Set Password Confirmation  ville123
+    Submit Credentials
+    Register Should Fail With Message  Username must be at least 3 characters long
 
 Register With Valid Username And Invalid Password
 # salasana ei sisällä halutunlaisia merkkejä
