@@ -2,7 +2,7 @@
 Resource  resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
-Test Setup  Create User And Go To Register Page
+Test Setup  Go To Register Page
 
 *** Test Cases ***
 Register With Valid Username And Password
@@ -58,7 +58,6 @@ Set Password Confirmation
     [Arguments]  ${password}
     Input Password  password_confirmation  ${password}
 
-Create User And Go To Register Page
-    Create User  kalle  kalle123
+Go To Register Page
     Go To Register Page
     Register Page Should Be Open
