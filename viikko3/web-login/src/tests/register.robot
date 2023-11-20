@@ -21,7 +21,11 @@ Register With Too Short Username And Valid Password
 
 Register With Valid Username And Invalid Password
 # salasana ei sisällä halutunlaisia merkkejä
-# ...
+    Set Username  ville
+    Set Password  villevii
+    Set Password Confirmation  villevii
+    Submit Credentials
+    Register Should Fail With Message  Password must contain non-letter characters
 
 Register With Nonmatching Password And Password Confirmation
 # ...
