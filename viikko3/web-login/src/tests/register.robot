@@ -6,7 +6,10 @@ Test Setup  Create User And Go To Register Page
 
 *** Test Cases ***
 Register With Valid Username And Password
-# ...
+    Set Username  ville
+    Set Password  ville123
+    Submit Credentials
+    Register Should Succeed
 
 Register With Too Short Username And Valid Password
 # ...
