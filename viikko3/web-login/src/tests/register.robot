@@ -51,7 +51,17 @@ Login After Successful Registration
     Login Should Succeed
 
 Login After Failed Registration
-    # ...
+    Set Username  ville
+    Set Password  ville123
+    Set Password Confirmation  Ville123
+    Submit Credentials
+    Register Should Fail With Message  Passwords do not match
+
+    Go To Login Page
+    Set Username  ville
+    Set Password  ville123
+    Submit Login
+    Login Should Fail With Message  Invalid username or password
 
 *** Keywords ***
 Register Should Succeed
@@ -86,3 +96,8 @@ Submit Login
 
 Login Should Succeed
     Main Page Should Be Open
+
+Login Should Fail With Message
+    [Arguments]  ${message}
+    Login Page Should Be Open
+    Page Should Contain  ${message}
