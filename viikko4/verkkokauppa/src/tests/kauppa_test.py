@@ -75,3 +75,16 @@ class TestKauppa(unittest.TestCase):
         self.kauppa.tilimaksu("sabrina", "55123")
 
         self.pankki_mock.tilisiirto.assert_called_with("sabrina", ANY, "55123", ANY, 7)
+
+    def test_aloita_asiointi_nollaa_edellisen_ostoksen_hinnan(self):
+        self.kauppa.aloita_asiointi()
+        self.kauppa.lisaa_koriin(1)
+        self.kauppa.tilimaksu("kaarina", "88111")
+
+        self.pankki_mock.tilisiirto.assert_called_with("kaarina", ANY, "88111", ANY, 5)
+
+        self.kauppa.aloita_asiointi()
+        self.kauppa.lisaa_koriin(2)
+        self.kauppa.tilimaksu("kaarina", "88111")
+
+        self.pankki_mock.tilisiirto.assert_called_with("kaarina", ANY, "88111", ANY, 7)
