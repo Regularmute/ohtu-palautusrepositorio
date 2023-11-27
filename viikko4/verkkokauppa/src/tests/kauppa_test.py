@@ -48,7 +48,7 @@ class TestKauppa(unittest.TestCase):
 
         self.pankki_mock.tilisiirto.assert_called_with("pete", ANY, "33333", ANY, 5)
 
-    def test_kahden_tuotteen_osto_kutsuu_pankin_metodia_tilisiirto_oikeilla_parametreilla(self):
+    def test_kahden_eri_tuotteen_osto_kutsuu_pankin_metodia_tilisiirto_oikeilla_parametreilla(self):
         self.kauppa.aloita_asiointi()
         self.kauppa.lisaa_koriin(1)
         self.kauppa.lisaa_koriin(2)
