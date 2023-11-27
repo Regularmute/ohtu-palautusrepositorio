@@ -6,4 +6,4 @@ Tekniikoista lyhyempi on Start, Stop, Continue, More of, Less of Wheel. Tiimi pi
 
 Toinen tekniikka on nimeltään sad, glad, mad. Jokainen tiimin jäsen kirjaa huomioita sprintin sisältä ja ulkopuolelta, ja merkitsevät esim. positiiviset asiat glad, negatiiviset tiimin sisäiset asiat sad ja negatiiviset tiimin ulkopuoliset asiat mad. Kaikki huomiot listataan, tiimi äänestää mitä asioita he tahtovat käydä läpi, ja asiat käydään sitten läpi yksitellen aloittaen eniten ääniä saaneista kunnes kaikki huomiot on käyty läpi tai retrospektiiviin varattu aika loppuu.
 
-Tagtest.
+Tag.
