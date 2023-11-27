@@ -55,3 +55,11 @@ class TestKauppa(unittest.TestCase):
         self.kauppa.tilimaksu("jooseppi", "11122")
 
         self.pankki_mock.tilisiirto.assert_called_with("jooseppi", ANY, "11122", ANY, 12)
+
+    def test_kahden_saman_tuotteen_osto_kutsuu_pankin_metodia_tilisiirto_oikeilla_parametreilla(self):
+        self.kauppa.aloita_asiointi()
+        self.kauppa.lisaa_koriin(1)
+        self.kauppa.lisaa_koriin(1)
+        self.kauppa.tilimaksu("kalevi", "99223")
+
+        self.pankki_mock.tilisiirto.assert_called_with("kalevi", ANY, "99223", ANY, 10)
