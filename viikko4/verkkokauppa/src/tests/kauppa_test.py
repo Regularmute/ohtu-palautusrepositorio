@@ -17,12 +17,16 @@ class TestKauppa(unittest.TestCase):
                 return 10
             if tuote_id == 2:
                 return 5
+            if tuote_id == 3:
+                return 0
 
         def varasto_hae_tuote(tuote_id):
             if tuote_id == 1:
                 return Tuote(1, "maito", 5)
             if tuote_id == 2:
                 return Tuote(2, "pulla", 7)
+            if tuote_id == 3:
+                return Tuote(3, "kolibri", 200)
 
         self.varasto_mock.saldo.side_effect = varasto_saldo
         self.varasto_mock.hae_tuote.side_effect = varasto_hae_tuote
@@ -63,3 +67,11 @@ class TestKauppa(unittest.TestCase):
         self.kauppa.tilimaksu("kalevi", "99223")
 
         self.pankki_mock.tilisiirto.assert_called_with("kalevi", ANY, "99223", ANY, 10)
+
+    def test_loppuneen_tuotteen_osto_ei_vaikuta_toiseen_oston_summaan(self):
+        self.kauppa.aloita_asiointi()
+        self.kauppa.lisaa_koriin(2)
+        self.kauppa.lisaa_koriin(3)
+        self.kauppa.tilimaksu("sabrina", "55123")
+
+        self.pankki_mock.tilisiirto.assert_called_with("sabrina", ANY, "55123", ANY, 7)
