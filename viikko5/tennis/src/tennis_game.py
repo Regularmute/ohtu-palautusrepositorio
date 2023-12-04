@@ -4,6 +4,12 @@ class TennisGame:
         self.player2_name = player2_name
         self.raw_score1 = 0
         self.raw_score2 = 0
+        self.tennis_scores = {
+            0: "Love",
+            1: "Fifteen",
+            2: "Thirty",
+            3: "Forty"
+        }
 
     def won_point(self, player_name):
         if player_name == "player1":
