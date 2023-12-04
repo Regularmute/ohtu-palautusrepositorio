@@ -21,40 +21,40 @@ class TennisGame:
         return self.raw_score1 == self.raw_score2
 
     def get_score(self):
-        score = ""
+        score_string = ""
         temp_score = 0
 
         if self.game_is_even():
             if self.raw_score1 < 3:
-                score = self.tennis_scores.get(self.raw_score1) + "-All"
+                score_string = self.tennis_scores.get(self.raw_score1) + "-All"
             else:
-                score = "Deuce"
+                score_string = "Deuce"
         elif self.raw_score1 >= 4 or self.raw_score2 >= 4:
             minus_result = self.raw_score1 - self. raw_score2
 
             if minus_result == 1:
-                score = "Advantage player1"
+                score_string = "Advantage player1"
             elif minus_result == -1:
-                score = "Advantage player2"
+                score_string = "Advantage player2"
             elif minus_result >= 2:
-                score = "Win for player1"
+                score_string = "Win for player1"
             else:
-                score = "Win for player2"
+                score_string = "Win for player2"
         else:
             for i in range(1, 3):
                 if i == 1:
                     temp_score = self.raw_score1
                 else:
-                    score = score + "-"
+                    score_string = score_string + "-"
                     temp_score = self.raw_score2
 
                 if temp_score == 0:
-                    score = score + "Love"
+                    score_string = score_string + "Love"
                 elif temp_score == 1:
-                    score = score + "Fifteen"
+                    score_string = score_string + "Fifteen"
                 elif temp_score == 2:
-                    score = score + "Thirty"
+                    score_string = score_string + "Thirty"
                 elif temp_score == 3:
-                    score = score + "Forty"
+                    score_string = score_string + "Forty"
 
-        return score
+        return score_string
