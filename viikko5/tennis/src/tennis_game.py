@@ -17,17 +17,16 @@ class TennisGame:
         else:
             self.raw_score2 = self.raw_score2 + 1
 
+    def game_is_even(self):
+        return self.raw_score1 == self.raw_score2
+
     def get_score(self):
         score = ""
         temp_score = 0
 
-        if self.raw_score1 == self.raw_score2:
-            if self.raw_score1 == 0:
-                score = "Love-All"
-            elif self.raw_score1 == 1:
-                score = "Fifteen-All"
-            elif self.raw_score1 == 2:
-                score = "Thirty-All"
+        if self.game_is_even():
+            if self.raw_score1 < 3:
+                score = self.tennis_scores.get(self.raw_score1) + "-All"
             else:
                 score = "Deuce"
         elif self.raw_score1 >= 4 or self.raw_score2 >= 4:
