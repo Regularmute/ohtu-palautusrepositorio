@@ -29,7 +29,7 @@ class TennisGame:
             else:
                 score_string = "Deuce"
         elif self.raw_score1 >= 4 or self.raw_score2 >= 4:
-            minus_result = self.raw_score1 - self. raw_score2
+            minus_result = self.raw_score1 - self.raw_score2
 
             if minus_result == 1:
                 score_string = "Advantage player1"
