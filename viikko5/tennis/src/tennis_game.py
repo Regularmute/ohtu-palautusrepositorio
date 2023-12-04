@@ -31,19 +31,10 @@ class TennisGame:
     def game_is_even(self):
         return self.raw_score1 == self.raw_score2
 
-    def display_winner(self):
+    def leading_player(self):
         if self.raw_score1 > self.raw_score2:
-            winning_player = self.player1_name
-        else:
-            winning_player = self.player2_name
-        return f"Win for {winning_player}"
-
-    def display_advantage(self):
-        if self.raw_score1 > self.raw_score2:
-            leading_player = self.player1_name
-        else:
-            leading_player = self.player2_name
-        return f"Advantage {leading_player}"
+            return self.player1_name
+        return self.player2_name
 
     def display_even_score(self):
         if self.raw_score1 < 3:
@@ -58,10 +49,10 @@ class TennisGame:
 
     def get_score(self):
         if self.game_is_over():
-            return self.display_winner()
+            return f"Win for {self.leading_player()}"
 
         elif self.is_game_point():
-            return self.display_advantage()
+            return f"Advantage {self.leading_player()}"
 
         elif self.game_is_even():
             return self.display_even_score()
