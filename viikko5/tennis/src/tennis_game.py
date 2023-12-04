@@ -12,7 +12,7 @@ class TennisGame:
         }
 
     def won_point(self, player_name):
-        if player_name == "player1":
+        if player_name == self.player1_name:
             self.raw_score1 = self.raw_score1 + 1
         else:
             self.raw_score2 = self.raw_score2 + 1
@@ -34,16 +34,16 @@ class TennisGame:
     def get_score(self):
         if self.game_is_over():
             if self.raw_score1 > self.raw_score2:
-                winning_player = "player1"
+                winning_player = self.player1_name
             else:
-                winning_player = "player2"
+                winning_player = self.player2_name
             return f"Win for {winning_player}"
 
         elif self.is_game_point():
             if self.raw_score1 > self.raw_score2:
-                leading_player = "player1"
+                leading_player = self.player1_name
             else:
-                leading_player = "player2"
+                leading_player = self.player2_name
             return f"Advantage {leading_player}"
 
         elif self.game_is_even():
