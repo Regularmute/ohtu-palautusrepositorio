@@ -32,27 +32,27 @@ class TennisGame:
         return abs(self.raw_score1 - self.raw_score2)
 
     def get_score(self):
-        score_string = ""
+        if self.game_is_over():
+            if self.raw_score1 > self.raw_score2:
+                winning_player = "player1"
+            else:
+                winning_player = "player2"
+            return f"Win for {winning_player}"
 
-        if self.game_is_even():
+        elif self.is_game_point():
+            if self.raw_score1 > self.raw_score2:
+                leading_player = "player1"
+            else:
+                leading_player = "player2"
+            return f"Advantage {leading_player}"
+
+        elif self.game_is_even():
             if self.raw_score1 < 3:
-                score_string = self.tennis_scores.get(self.raw_score1) + "-All"
+                return self.tennis_scores.get(self.raw_score1) + "-All"
             else:
-                score_string = "Deuce"
-        elif self.raw_score1 >= 4 or self.raw_score2 >= 4:
-            minus_result = self.raw_score1 - self.raw_score2
+                return "Deuce"
 
-            if minus_result == 1:
-                score_string = "Advantage player1"
-            elif minus_result == -1:
-                score_string = "Advantage player2"
-            elif minus_result >= 2:
-                score_string = "Win for player1"
-            else:
-                score_string = "Win for player2"
-        else:
-            player1_final_score = self.tennis_scores.get(self.raw_score1)
-            player2_final_score = self.tennis_scores.get(self.raw_score2)
-            score_string = f"{player1_final_score}-{player2_final_score}"
+        player1_final_score = self.tennis_scores.get(self.raw_score1)
+        player2_final_score = self.tennis_scores.get(self.raw_score2)
+        return f"{player1_final_score}-{player2_final_score}"
 
-        return score_string
