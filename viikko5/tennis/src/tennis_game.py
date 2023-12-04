@@ -20,6 +20,17 @@ class TennisGame:
     def game_is_even(self):
         return self.raw_score1 == self.raw_score2
 
+    def game_is_over(self):
+        return max(self.raw_score1, self.raw_score2) > 3\
+            and self.score_difference() > 1
+
+    def is_game_point(self):
+        return max(self.raw_score1, self.raw_score2) > 3\
+            and self.score_difference() == 1
+
+    def score_difference(self):
+        return abs(self.raw_score1 - self.raw_score2)
+
     def get_score(self):
         score_string = ""
 
