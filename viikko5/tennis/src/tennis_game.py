@@ -22,7 +22,6 @@ class TennisGame:
 
     def get_score(self):
         score_string = ""
-        temp_score = 0
 
         if self.game_is_even():
             if self.raw_score1 < 3:
@@ -41,20 +40,8 @@ class TennisGame:
             else:
                 score_string = "Win for player2"
         else:
-            for i in range(1, 3):
-                if i == 1:
-                    temp_score = self.raw_score1
-                else:
-                    score_string = score_string + "-"
-                    temp_score = self.raw_score2
-
-                if temp_score == 0:
-                    score_string = score_string + "Love"
-                elif temp_score == 1:
-                    score_string = score_string + "Fifteen"
-                elif temp_score == 2:
-                    score_string = score_string + "Thirty"
-                elif temp_score == 3:
-                    score_string = score_string + "Forty"
+            player1_final_score = self.tennis_scores.get(self.raw_score1)
+            player2_final_score = self.tennis_scores.get(self.raw_score2)
+            score_string = f"{player1_final_score}-{player2_final_score}"
 
         return score_string
