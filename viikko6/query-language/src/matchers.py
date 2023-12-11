@@ -14,6 +14,9 @@ class QueryBuilder:
     def build(self):
         return self.matcher
 
+    def oneOf(self, *matchers):
+        return QueryBuilder(Or(*matchers))
+
 class And:
     def __init__(self, *matchers):
         self._matchers = matchers
